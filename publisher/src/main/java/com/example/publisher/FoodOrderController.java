@@ -16,10 +16,7 @@ public class FoodOrderController {
     @RequestMapping("/order")
     @ResponseBody
     public String orderFood(@RequestBody FoodOrder foodOrder) {
-        System.out.println("HIT THE ENDPOINT");
         foodOrderSource.foodOrders().send(MessageBuilder.withPayload(foodOrder).build());
-        System.out.println("AFTER CALLING THE FOOD ORDER SOURCE");
-        System.out.println(foodOrder.toString());
         return "food ordered";
     }
 
